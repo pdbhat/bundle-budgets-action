@@ -42,3 +42,23 @@ describe('formatBytes', () => {
     expect(formatBytes(1048576 * 2.5)).toBe('2.50 MB');
   });
 });
+
+describe('generateJsonReport', () => {
+  it('serializes summary into valid JSON', async () => {
+    const { generateJsonReport } = await import('../src/formatter.js');
+    const mockSummary = {
+      evaluatedAt: '2026-10-12T12:00:00.000Z',
+      directory: 'dist',
+      totalFiles: 2,
+      totalRawBytes: 2048,
+      totalGzipBytes: 512,
+      totalBrotliBytes: 400,
+      results: [],
+      allPassed: true,
+    };
+    const jsonStr = generateJsonReport(mockSummary);
+    const parsed = JSON.parse(jsonStr);
+    expect(parsed.totalFiles).toBe(2);
+    expect(parsed.allPassed).toBe(true);
+  });
+});

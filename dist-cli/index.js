@@ -265,6 +265,12 @@ ${violationSection}
 > *Evaluated by [bundle-budgets-action](https://github.com/pdbhat/bundle-budgets-action) at ${summary.evaluatedAt}*
 `;
 }
+/**
+ * Generates structured JSON output for CI pipeline artifact integration.
+ */
+function generateJsonReport(summary, pretty = true) {
+    return JSON.stringify(summary, null, pretty ? 2 : 0);
+}
 
 ;// CONCATENATED MODULE: ./src/cli.ts
 
