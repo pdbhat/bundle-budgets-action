@@ -1,0 +1,9 @@
+import { AnalysisSummary } from './analyzer.js';
+/**
+ * Generates an ANSI terminal output report.
+ */
+export declare function generateTerminalReport(summary: AnalysisSummary): string;
+/**
+ * Generates a clean GitHub Markdown comment report for PRs.
+ */
+export declare function generateMarkdownReport(summary: AnalysisSummary): string;

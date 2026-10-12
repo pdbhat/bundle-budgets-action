@@ -1,0 +1,37 @@
+name: 'Bundle Budgets Action'
+description: 'Fast, zero-config GitHub Action to enforce asset budgets, track bundle size diffs, and guard Web Vitals in CI.'
+author: 'Priyadarshan Bhat'
+inputs:
+  directory:
+    description: 'Directory containing built assets to analyze (e.g. dist, build, .next/static)'
+    required: false
+    default: 'dist'
+  config-file:
+    description: 'Path to custom bundle budget config JSON file'
+    required: false
+    default: '.bundle-budgetrc.json'
+  fail-on-breach:
+    description: 'Fail workflow run if any budget threshold is exceeded'
+    required: false
+    default: 'true'
+  comment-on-pr:
+    description: 'Post or update an analysis summary markdown comment on the pull request'
+    required: false
+    default: 'true'
+  github-token:
+    description: 'GitHub token for posting PR comments (typically secrets.GITHUB_TOKEN)'
+    required: false
+    default: ${{ github.token }}
+outputs:
+  all-passed:
+    description: 'Boolean indicating if all asset rules passed'
+  total-gzip-bytes:
+    description: 'Total gzip compressed size in bytes across scanned assets'
+  total-brotli-bytes:
+    description: 'Total brotli compressed size in bytes across scanned assets'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+branding:
+  icon: 'package'
+  color: 'blue'

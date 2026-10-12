@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build artifacts
+coverage/
+
+# Environment / OS
+.DS_Store
+*.pem
+.env
+.env.local
+*.log
+
+# Personal files
+*.pdf

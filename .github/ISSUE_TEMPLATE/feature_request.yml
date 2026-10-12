@@ -1,0 +1,21 @@
+name: Feature request
+description: Suggest an idea or enhancement for this action
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: Have a proposal to enhance asset budget checks or reporting?
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: Is your feature request related to a problem or developer workflow?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe what you would like to see happen.
+    validations:
+      required: true

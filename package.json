@@ -1,0 +1,39 @@
+{
+  "name": "bundle-budgets-action",
+  "version": "1.0.0",
+  "description": "Fast, dependency-light GitHub Action & CLI to enforce asset budgets, track bundle size diffs, and guard Web Vitals in CI.",
+  "main": "dist/index.js",
+  "bin": {
+    "bundle-budgets": "dist/cli.js"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "ncc build src/index.ts -o dist --source-map --license licenses.txt && ncc build src/cli.ts -o dist-cli --source-map",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src/ --ext .ts"
+  },
+  "keywords": [
+    "github-action",
+    "bundle-size",
+    "performance",
+    "web-vitals",
+    "ci-cd",
+    "frontend-platform",
+    "budget"
+  ],
+  "author": "Priyadarshan Bhat <priyadarshanbhat@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/github": "^6.0.0",
+    "picocolors": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@vercel/ncc": "^0.38.3",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.7"
+  }
+}
